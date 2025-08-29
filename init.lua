@@ -241,6 +241,11 @@ vim.keymap.set('n', 'x', '"_x')
 -- and yank too
 vim.keymap.set('v', 'p', '"_dp')
 
+vim.keymap.set('n', '<leader>m', ':marks<CR>', { desc = 'List marks' })
+vim.keymap.set('n', '<leader>dm', ':delmarks a-z<CR>', { desc = 'Delete local marks' })
+-- vim.keymap.set('n', '<leader>dM', ':delmarks!<CR>', { desc = 'Delete all marks' })
+vim.keymap.set('n', '<leader>dM', ':delmarks A-Z0-9<CR>', { desc = 'Delete global marks' })
+
 vim.api.nvim_create_user_command('Run', function()
   local ft = vim.bo.filetype
   if ft == 'go' then
